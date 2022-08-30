@@ -16,7 +16,7 @@ const deleteUser= async (e)=>{
       <p>{user?.email} </p>
       <p>{user?.password} </p>
       <p>{user?.name} </p>
-
+      <p>{user?.age} </p>
       <button className="btn btn-danger" onClick={deleteUser}>Delete</button>
       {/* <button className="btn btn-danger" onClick={deleteUser}>Delete</button> */}
 
