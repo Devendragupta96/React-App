@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react'
-import axios from 'axios'
 import User from './User'
 
 const Users = () => {
@@ -9,8 +7,8 @@ const Users = () => {
        
 const fetchUsers= async (e)=>{
     e.preventDefault();
-   const res=await axios.get("http://localhost:3000/users")
-   setUsers(res.data)
+   const res=await fetch("http://localhost:3000/users")
+   setUsers(await res.json())
 }
 
   return (

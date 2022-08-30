@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 
 const Form = () => {
@@ -11,9 +10,13 @@ const Form = () => {
          
 const addUser= async (e)=>{
     e.preventDefault();
-   await axios.post("http://localhost:3000/users/create",{
+   await fetch("http://localhost:3000/users/create",{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
         name,password,email,age
-   })
+        })
+})
    
 }
 
