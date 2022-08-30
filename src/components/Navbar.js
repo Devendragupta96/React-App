@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import User from './User';
 
-export default function Navbar(props) {
-  const [user,setUser]=useState([]);
+export default function Navbar({setUser,title}) {
   const [_id,setId]=useState("");
- 
        
 const fetchUser= async (e)=>{
     e.preventDefault();
@@ -13,12 +10,14 @@ const fetchUser= async (e)=>{
    setUser(await res.json())
 }
 
+
+
     let array=['Action','Another action','Something else here'];
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
     <div className="container-fluid">
-    <a className="navbar-brand" href="/">{props.title}</a>
+    <a className="navbar-brand" href="/">{title}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -48,10 +47,14 @@ const fetchUser= async (e)=>{
           <a className="nav-link disabled" href="/">Disabled</a>
         </li>
       </ul>
+
+           
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" value= {_id} placeholder="Search your Id" aria-label="Search" onChange={(e) => setId(e.target.value)}></input>
         <button className="btn btn-outline-success" type="submit" onClick={fetchUser}>Search</button>
       </form>
+
+
     </div>
   </div>
 </nav>

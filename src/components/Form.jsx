@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const Form = ({user}) => {
+  console.log(user,"form")
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -55,6 +57,8 @@ const addUser= async (e)=>{
       />
 
       <button className="btn btn-primary" onClick={addUser}>Submit</button>
+
+      <div>{user?.email}</div>
     </form>
   );
 };
